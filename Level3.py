@@ -19,10 +19,18 @@ y_k=0
 x_s,y_s,x_s2,y_s2,x_s3,y_s3 =0,0,0,0,0,0
 mx,my,mx2,my2,mx3,my3 =0,0,0,0,0,0
 
+tran_xs = [35,250,850] 
+tran_ys = [550,650,330]
+
+tran_xk=30-60
+tran_yk=950
+
 #set pergantian sisi untuk gerakan karakter 
 rotate=1 #knight
-stat=0 #spider
+stat,stat2,stat3=0,0,0 #spider
 scl=0.7
+
+speed=0.5
 
 def input_keyboard(key,x,y):
     global x_k,y_k,rotate
@@ -308,75 +316,104 @@ def knight_move():
     elif -350<=y_k+10<=-250 and 260<=x_k+10<=295:
         if 260<x_k<=295: x_k+=5
         elif x_k<=260: x_k-=5
+
+    #570, -450
+    #570, -550
+    elif -550<=y_k+10<=-450 and 560<=x_k+10<=575:
+        if 560<x_k<=575: x_k+=5
+        elif x_k<=560: x_k-= 5
+    
         
-    print('X = ',x_k)
-    print('Y = ',y_k)
+    # print('X = ',x_k)
+    # print('Y = ',y_k)
     glPopMatrix()
 
 def spider1():
-    global x_s, y_s, mx,my
+    global x_s, y_s, mx,my,stat,speed
     glPushMatrix()
     glTranslate(35,550,0)
     glTranslate(x_s,y_s,0)
-    stat=True
-    if stat:
-        if y_s>=0 and (x_s<=0) : 
-            my=-0.950
-        elif y_s<=-500 and x_s<=0: 
+    if stat==0:
+        if y_s==0 and x_s<=0: 
+            my=-speed
+            stat=0
+        if y_s<=-500: #kanan
             my=0
-            mx=0.4
-        elif x_s>=620 and y_s<=-500:
+            mx=speed
+            stat=0
+        if x_s==625:#atas
             mx=0
-            my=0.4
-        elif 620<=x_s and y_s>=0:
+            my=speed
+            stat=0
+        if y_s==-20 and x_s==625:
             mx=0
-            my=-0.4
-        elif x_s>=620 and y_s<=-500:
             my=0
-            mx=-0.4
+            stat=1
+    elif stat==1:
+        if y_s==-20 and x_s==625: #Bawah
+            mx=0
+            my=-speed
+            stat=1
+        if y_s<=-500: #kekiri
+            my=0
+            mx=-speed
+            stat=1
+        if y_s==-500 and x_s==0: #keatas
+            mx=0
+            my=+speed
+            stat=1
+        if y_s==0 and x_s<=0:
+            mx=0
+            my=0
+            stat=0
+
     x_s+=mx
     y_s+=my
+    print(x_s,y_s)
 
     glScale(6, 6, 0.0)
     laba()
     glPopMatrix()
 
-def spider2():
-    global x_s2, y_s2,mx2,my2, stat
+def spider2(): #done
+    global x_s2, y_s2,mx2,my2, stat2
     # arah = 'sumbu x'
     p=0
     glPushMatrix()
     glTranslate(250,650,0)
     glTranslate(x_s2,y_s2,0)
-    if True:
-        if stat==0:
-            if -1<y_s2<=0 : my2=0.3
-            elif 99<=y_s2:
-                my2=0
-                mx2=0.3
-            if x_s2>=100 and y_s<=-200:
-                mx2=0
-                my2=-0.3
-            if -200<=y_s2<=-199:
-                mx2=0
-                my2=0.3
-                p=1
-        elif stat>0:
-            if -200<=y_s2<=-199:
-                mx2=0
-                my2=0.3
-            elif 99<=y_s2:
-                my2=0
-                mx2=-0.3
-            if x_s2<=0 : 
-                mx2=0
-                my2=-0.3
-            if -1<=y_s2<=1 and x_s2<=0:
-                mx2=0
-                my2=0.3
-                p=-1
+    if stat2==0:
+        if 0<=y_s2<=0 : 
+            my2=0.3
+            stat2=0
+        elif 99<=y_s2 :
+            my2=0
+            mx2=0.3
+            stat2=0
+        if x_s2>=100 :
+            mx2=0
+            my2=-0.3
+            stat2=0
+        if y_s2<=-199:
+            mx2=0
+            my2=0.3
+            stat2=1
+    elif stat2==1:
+        if -200<=y_s2<=-199:
+            mx2=0
+            my2=0.3
+        elif 99<=y_s2:
+            my2=0
+            mx2=-0.3
+        if x_s2<=0 : 
+            mx2=0
+            my2=-0.3
+        if -1<=y_s2<=1 and x_s2<=0:
+            mx2=0
+            my2=0.3
+            stat2=0
 
-    stat+=p
+
     x_s2+=mx2
     y_s2+=my2
 
@@ -384,31 +421,82 @@ def spider2():
     laba()
     glPopMatrix()
 
-stat3=True
 def spider3():
-    global x_s3, y_s3,mx3,my3, stat3
-    speed = 0.5
-    fullspeed = 0.6
+    global x_s3, y_s3,mx3,my3, stat3, speed
     glPushMatrix()
     glTranslate(850,330,0)
     glTranslate(x_s3,y_s3,0)
-    
-    if True:
-        if (y_s3==0 or 110==x_s3) and stat3==True: #kebawah 
-            mx3=0
+    if stat3==0:
+        if (0<=y_s3<=0) :#kebawah 
             my3=-speed
-        elif (y_s3==-180 or x_s3==-90) and (stat3==True or stat3==False): #kanan
+            stat3=0
+        if (y_s3<=-180 ): #kanan
             my3=0
             mx3=speed
-        elif y_s3==-280 and stat3==True:#kiri
+            stat3=0
+        if (x_s3>=120):#bawah
+            mx3=0
+            my3=-speed
+            stat3=0
+        if y_s3 <=-280:#kiri
             my3=0
             mx3=-speed
-            if 110==x_s3 and y_s3==-280:
-                stat3=False
-        elif (x_s3==110 and y_s3<=-280 or y_s3==-180 and x_s3<=0) and stat3==False :#ke atas
+            stat3=0
+        if x_s3<=-100: #titik balik
+            mx3=0
+            my3=0
+            stat3=1
+    elif stat3==1:
+        if x_s3<=0  :#kanan
+            mx3=speed
+            stat3=1
+        if x_s3>=120  : #keatas 
             mx3=0
             my3=speed
-            if  y_s3==-180 and x_s3<=0: stat3=True
+            stat3=1
+        if y_s3==-180 and x_s3>=120: #kiri
+            my3=0
+            mx3=-speed
+            stat3=1
+        if x_s3==0 and y_s3==-180 :
+            mx3=0
+            my3=speed
+            stat3=0
+
+    # if stat3==0:
+    #     if 0<=y_s3<=0 : #bawah
+    #         my3=-0.3
+    #         stat3=0
+    #     elif 99<=y_s3 :#kanan
+    #         my2=0
+    #         mx2=0.3
+    #         stat2=0
+    #     if x_s2>=-100 : #bawah
+    #         mx2=0
+    #         my2=-0.3
+    #         stat2=0
+    #     elif -280>=y_s3 :#kiri
+    #         my2=0
+    #         mx2=-0.3
+    #         stat2=0
+    #     if y_s3<=-189:
+    #         mx2=0
+    #         my2=0.3
+    #         stat2=1
+    # elif stat2==1:
+    #     if -200<=y_s2<=-199:
+    #         mx2=0
+    #         my2=0.3
+    #     elif -180<=y_s2:
+    #         my2=0
+    #         mx2=-0.3
+    #     if x_s2<=0 : 
+    #         mx2=0
+    #         my2=-0.3
+    #     if -1<=y_s2<=1 and x_s2<=0:
+    #         mx2=0
+    #         my2=0.3
+    #         stat2=0
 
     x_s3+=mx3
     y_s3+=my3
@@ -418,23 +506,17 @@ def spider3():
     glPopMatrix()
 
 def collision():
-    global x_s,y_s,x_k,y_k,x_s2,y_s2
+    global x_s,y_s,x_k,y_k,x_s2,y_s2,tran_xs,tran_ys,tran_yk,tran_xk
     #Spider1
-    if (x_s+5-20<=x_k+10<=x_s+5+20 or x_s+5-20<=x_k-10<=x_s+5+20) and (y_s+320-20<=y_k+15<=y_s+320+20 or y_s+320-20<=y_k-2<=y_s+320+20):
+    if (x_s+tran_xs[0]-50<=x_k<=x_s+tran_xs[0] or x_s+tran_xs[0]-50<=x_k<=x_s+tran_xs[0]) and (y_s+tran_ys[0]-25<=y_k+tran_yk<=y_s+tran_ys[0]+20 or y_s+tran_ys[0]-25<=y_k-tran_yk<=y_s+tran_ys[0]+20):
         print('collision 1')
-    elif (x_s+5-10<=x_k+10<=x_s+5+10 or x_s+5-10<=x_k-10<=x_s+5+10):
-        print('Overlap sumbu x')
-    elif (y_s+300-2<=y_k+2<=y_s+300+40 or y_s+300-10<=y_k-2<=y_s+300+40):
-        print('Overlap sumbu y')
+
     #Spider2
-    if (x_s2+100-20<=x_k+10<=x_s2+100+20 or x_s2+100-20<=x_k-10<=x_s2+100+20) and (y_s2+600-20<=y_k+15<=y_s2+600+20 or y_s2+600-20<=y_k-2<=y_s2+600+20):
+    if (x_s2+tran_xs[1]-50<=x_k+10<=x_s2+tran_xs[1] or x_s2+tran_xs[1]-50<=x_k-10<=x_s2+tran_xs[1]) and (y_s2+tran_ys[1]-25<=y_k+tran_yk<=y_s2+tran_ys[1]+20 or y_s2+tran_ys[1]-25<=y_k-tran_yk<=y_s2+tran_ys[1]+20):
         print('collision 2')
-    elif (x_s2+100-10<=x_k+10<=x_s2+100+10 or x_s2+100-10<=x_k-10<=x_s2+100+10):
-        print('Overlap sumbu x')
-    elif (y_s2+580-2<=y_k+2<=y_s2+580+40 or y_s2+580-10<=y_k-2<=y_s2+580+40):
-        print('Overlap sumbu y')
-    else :
-        print('None')
+
+    if (x_s3+tran_xs[2]-55<=x_k<=x_s3+tran_xs[2]+5 or x_s3+tran_xs[2]-55<=x_k<=x_s3+tran_xs[2]+5) and (y_s3+tran_ys[2]-25<=y_k+tran_yk<=y_s3+tran_ys[2]+25 or y_s3+tran_ys[2]-25<=y_k-tran_yk<=y_s3+tran_ys[2]+25):
+        print('collision 3')
 
 def update(value):
     glutPostRedisplay()

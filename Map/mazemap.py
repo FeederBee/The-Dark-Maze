@@ -307,6 +307,9 @@ def maze3():
     glVertex(900, 600)
     glVertex(1000, 600)
 
+    glVertex(600, 400)
+    glVertex(600, 500)    
+
     glEnd()
 
 
