@@ -5,9 +5,13 @@ from Karakter import *
 from Map.mazemap import *
 from Karakter.Knight import *
 from Karakter.Spider import *
+from Karakter.princess import *
+from label import *
+
 
 # Ukuran
 canvas=700
+gameover = False
 
 #set koordinat Knight
 x_k=0
@@ -505,6 +509,17 @@ def spider3():
     laba()
     glPopMatrix()
 
+def princes():
+    glTranslated(960, -430, 0)
+    glScaled(0.1,0.1,0)
+    glRotated(-180,0,1,0)
+    princess()
+
+def labelend():
+    glTranslatef(-60, -50, 0)
+    glScaled(0.8, 0.8,0)
+    gameend()
+
 def collision():
     global x_s,y_s,x_k,y_k,x_s2,y_s2,tran_xs,tran_ys,tran_yk,tran_xk
     #Spider1
@@ -517,6 +532,13 @@ def collision():
 
     if (x_s3+tran_xs[2]-55<=x_k<=x_s3+tran_xs[2]+5 or x_s3+tran_xs[2]-55<=x_k<=x_s3+tran_xs[2]+5) and (y_s3+tran_ys[2]-25<=y_k+tran_yk<=y_s3+tran_ys[2]+25 or y_s3+tran_ys[2]-25<=y_k-tran_yk<=y_s3+tran_ys[2]+25):
         print('collision 3')
+
+def gamestate():
+    global gameover
+    if gameover == True:
+        labelend()
+    else:
+        princes()
 
 def update(value):
     glutPostRedisplay()
@@ -543,6 +565,7 @@ def level3():
     glTranslate(30,950,0)
     knight_move()
     collision()
+    gamestate()
     glutSwapBuffers()
 
 def level3_main():

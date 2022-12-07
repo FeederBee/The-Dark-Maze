@@ -103,8 +103,8 @@ def gameend():
     glBegin(GL_POLYGON)
     glVertex(0, 0)
     glVertex(0, 1000)
-    glVertex(1000, 1000)
-    glVertex(1000, 0)
+    glVertex(1500, 1500)
+    glVertex(1500, 0)
     glEnd()
     
     glColor3ub(120, 0, 0)

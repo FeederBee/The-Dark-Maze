@@ -6,9 +6,12 @@ from Map.mazemap import *
 from Karakter.Knight import *
 from Karakter.Spider import *
 from Karakter.princess import *
+from label import *
 
 # Ukuran
 canvas=700
+gameover = False
+
 #set koordinat Knight
 x_k=0
 y_k=0
@@ -189,6 +192,11 @@ def princes():
     glRotated(-180,0,1,0)
     princess()
 
+def labelend():
+    glTranslatef(-60, -50, 0)
+    glScaled(0.8, 0.8,0)
+    gameend()
+
 def spider1():
     global x_s, y_s, mx,my
     arah='x'
@@ -249,23 +257,30 @@ def collision():
     #Spider1
     if (x_s+5-20<=x_k+10<=x_s+5+20 or x_s+5-20<=x_k-10<=x_s+5+20) and (y_s+320-20<=y_k+15<=y_s+320+20 or y_s+320-20<=y_k-2<=y_s+320+20):
         print('collision 1')
-    elif (x_s+5-10<=x_k+10<=x_s+5+10 or x_s+5-10<=x_k-10<=x_s+5+10):
-        print('Overlap sumbu x')
-    elif (y_s+300-2<=y_k+2<=y_s+300+40 or y_s+300-10<=y_k-2<=y_s+300+40):
-        print('Overlap sumbu y')
+    # elif (x_s+5-10<=x_k+10<=x_s+5+10 or x_s+5-10<=x_k-10<=x_s+5+10):
+    #     print('Overlap sumbu x')
+    # elif (y_s+300-2<=y_k+2<=y_s+300+40 or y_s+300-10<=y_k-2<=y_s+300+40):
+    #     print('Overlap sumbu y')
     #Spider2
     if (x_s2+100-20<=x_k+10<=x_s2+100+20 or x_s2+100-20<=x_k-10<=x_s2+100+20) and (y_s2+600-20<=y_k+15<=y_s2+600+20 or y_s2+600-20<=y_k-2<=y_s2+600+20):
         print('collision 2')
-    elif (x_s2+100-10<=x_k+10<=x_s2+100+10 or x_s2+100-10<=x_k-10<=x_s2+100+10):
-        print('Overlap sumbu x')
-    elif (y_s2+580-2<=y_k+2<=y_s2+580+40 or y_s2+580-10<=y_k-2<=y_s2+580+40):
-        print('Overlap sumbu y')
+    # elif (x_s2+100-10<=x_k+10<=x_s2+100+10 or x_s2+100-10<=x_k-10<=x_s2+100+10):
+    #     print('Overlap sumbu x')
+    # elif (y_s2+580-2<=y_k+2<=y_s2+580+40 or y_s2+580-10<=y_k-2<=y_s2+580+40):
+    #     print('Overlap sumbu y')
     else :
         print('None')
 
 def update(value):
     glutPostRedisplay()
     glutTimerFunc(10,update,0)
+
+def gamestate():
+    global gameover
+    if gameover == True:
+        labelend()
+    else:
+        princes()
 
 def iterate():
     glViewport(0, 0, 700, 700)
@@ -287,8 +302,8 @@ def level2():
     knight_move()
     spider1()
     spider2()
-    princes()
     collision()
+    gamestate()
     glutSwapBuffers()
 
 def level2_main():

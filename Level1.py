@@ -9,6 +9,7 @@ from Karakter.princess import*
 from label import *
 
 gameover = False
+tamat = False
 
 #set koordinat Knight
 x_k=0
@@ -19,6 +20,10 @@ y_k=0
 x_s=0
 y_s=0
 mx,my=0,0
+
+#set koordinat princess
+x_p = 0
+y_p = 0
 
 #set animasi untuk gerakan karakter
 rotate=1
@@ -254,38 +259,41 @@ def spider():
     laba()
     glPopMatrix()
 
+def princes():
+    global x_p, y_p
+    glTranslated(465, 185, 0)
+    glTranslate(x_p,y_p,0)
+    glScaled(0.1,0.1,0)
+    glRotated(-180,0,1,0)
+    princess()
 
 def labelend():
-    glTranslatef(-60, -20, 0)
+    glTranslatef(-60, -50, 0)
     glScaled(0.8, 0.8,0)
     gameend()
 
 
 
 def collision():
-    global x_s,y_s,x_k,y_k, gameover
+    global x_s,y_s,x_k,y_k, gameover, tamat
     if (x_s+200-20<=x_k+10<=x_s+200+20 or x_s+200-20<=x_k-10<=x_s+200+20) and (y_s+200-20<=y_k+15<=y_s+200+20 or y_s+200-20<=y_k-2<=y_s+200+20):
         gameover = True
     # elif (x_s+200-10<=x_k+10<=x_s+200+10 or x_s+200-10<=x_k-10<=x_s+200+10):
     #     print('Overlap sumbu x')
     # elif (y_s+180-2<=y_k+2<=y_s+180+40 or y_s+180-10<=y_k-2<=y_s+180+40):
     #     print('Overlap sumbu y')
-
+    elif (x_p+200-20<=x_k+10<=x_p+200+20 or x_p+200-20<=x_k-10<=x_p+200+20) and (y_p+200-20<=y_k+10<=y_p+200+20 or y_p+200-20<=y_k-10<=y_p+200+20):
+        tamat = True
+        print("tamat")
     else :
         None
 
 def gamestate():
     global gameover
-    if gameover:
+    if gameover == True:
         labelend()
     else:
         princes()
-
-def princes():
-    glTranslated(465, 185, 0)
-    glScaled(0.1,0.1,0)
-    glRotated(-180,0,1,0)
-    princess()
 
 def update(value):
     glutPostRedisplay()
