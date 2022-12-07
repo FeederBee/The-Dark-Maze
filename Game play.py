@@ -3,7 +3,7 @@ from OpenGL.GLU import *
 from OpenGL.GLUT import *
 from gerak import *
 from Karakter import *
-from Karakter.Love import love
+# from Karakter.Love import love
 
 #Ukuran canvas
 lebar = 60
@@ -17,7 +17,7 @@ def display():
     glClear(GL_COLOR_BUFFER_BIT)
     knight_mov()
     spider_mov()
-    love()
+    # love()
     collision()
     glFlush()
 
