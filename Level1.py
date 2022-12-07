@@ -5,6 +5,10 @@ from Karakter import *
 from Map.mazemap import *
 from Karakter.Knight import *
 from Karakter.Spider import *
+from Karakter.princess import*
+from label import *
+
+gameover = False
 
 #set koordinat Knight
 x_k=0
@@ -39,6 +43,119 @@ def input_keyboard(key,x,y):
         rotate=4
         x_k -= 5
 
+    glColor3ub(120, 0, 0)
+    glBegin(GL_POLYGON)
+    glVertex(80, 280)
+    glVertex(80, 480)
+    glVertex(620, 480)
+    glVertex(620, 280)
+    glEnd()
+
+    glColor3ub(150, 75, 0)
+    glBegin(GL_POLYGON)
+    glVertex(100, 300)
+    glVertex(100, 460)
+    glVertex(600, 460)
+    glVertex(600, 300)
+    glEnd()
+
+
+    glColor3ub(150, 0, 0)
+    glBegin(GL_POLYGON)
+    glVertex(120, 320)
+    glVertex(120, 440)
+    glVertex(580, 440)
+    glVertex(580, 320)
+    glEnd()
+
+    glColor3ub(255, 160, 160)
+    glLineWidth(3)
+    glBegin(GL_LINES)
+    glVertex(180, 400)
+    glVertex(140, 400)
+
+    glVertex(140, 400)
+    glVertex(140, 360)
+
+    glVertex(140, 360)
+    glVertex(180, 360)
+
+    glVertex(180, 360)
+    glVertex(180, 380)
+
+    glVertex(180, 380)
+    glVertex(160, 380)
+
+    glVertex(200, 360)
+    glVertex(220, 400)
+    
+    glVertex(220, 400)
+    glVertex(240, 360)
+
+    glVertex(210, 380)
+    glVertex(230, 380)
+
+    glVertex(260, 360)
+    glVertex(260, 400)
+
+    glVertex(260, 400)
+    glVertex(280, 380)
+
+    glVertex(280, 380)
+    glVertex(300, 400)
+
+    glVertex(300, 400)
+    glVertex(300, 360)
+
+    glVertex(320, 400)
+    glVertex(320, 360)
+
+    glVertex(320, 400)
+    glVertex(360, 400)
+
+    glVertex(320, 380)
+    glVertex(340, 380)
+
+    glVertex(320, 360)
+    glVertex(360, 360)
+
+    glVertex(400, 400)
+    glVertex(400, 360)
+
+    glVertex(400, 400)
+    glVertex(440, 400)
+
+    glVertex(400, 380)
+    glVertex(420, 380)
+
+    glVertex(400, 360)
+    glVertex(440, 360)
+
+    glVertex(460, 360)
+    glVertex(460, 400)
+
+    glVertex(460, 400)
+    glVertex(500, 360)
+
+    glVertex(500, 360)
+    glVertex(500, 400)
+
+    glVertex(520, 360)
+    glVertex(520, 400)
+    
+    glVertex(520, 400)
+    glVertex(540, 400)
+
+    glVertex(540, 400)
+    glVertex(560, 380)
+
+    glVertex(560, 380)
+    glVertex(540, 360)
+
+    glVertex(540, 360)
+    glVertex(520, 360)
+
+    glEnd()
 
 def knight_move():
     global x_k,y_k,rotate, game
@@ -114,6 +231,8 @@ def knight_move():
 
     glPopMatrix()
 
+
+
 def spider():
     global x_s, y_s, state, mx,my, arah
     glPushMatrix()
@@ -135,16 +254,38 @@ def spider():
     laba()
     glPopMatrix()
 
+
+def labelend():
+    glTranslatef(-60, -20, 0)
+    glScaled(0.8, 0.8,0)
+    gameend()
+
+
+
 def collision():
-    global x_s,y_s,x_k,y_k
+    global x_s,y_s,x_k,y_k, gameover
     if (x_s+200-20<=x_k+10<=x_s+200+20 or x_s+200-20<=x_k-10<=x_s+200+20) and (y_s+200-20<=y_k+15<=y_s+200+20 or y_s+200-20<=y_k-2<=y_s+200+20):
-        print('colli')
-    elif (x_s+200-10<=x_k+10<=x_s+200+10 or x_s+200-10<=x_k-10<=x_s+200+10):
-        print('Overlap sumbu x')
-    elif (y_s+180-2<=y_k+2<=y_s+180+40 or y_s+180-10<=y_k-2<=y_s+180+40):
-        print('Overlap sumbu y')
+        gameover = True
+    # elif (x_s+200-10<=x_k+10<=x_s+200+10 or x_s+200-10<=x_k-10<=x_s+200+10):
+    #     print('Overlap sumbu x')
+    # elif (y_s+180-2<=y_k+2<=y_s+180+40 or y_s+180-10<=y_k-2<=y_s+180+40):
+    #     print('Overlap sumbu y')
+
     else :
         None
+
+def gamestate():
+    global gameover
+    if gameover:
+        labelend()
+    else:
+        princes()
+
+def princes():
+    glTranslated(465, 185, 0)
+    glScaled(0.1,0.1,0)
+    glRotated(-180,0,1,0)
+    princess()
 
 def update(value):
     glutPostRedisplay()
@@ -170,13 +311,14 @@ def level1():
     knight_move()
     spider()
     collision()
+    gamestate()
     glutSwapBuffers()
 
 def level1_main():
     glutInit()
     glutInitDisplayMode(GLUT_RGBA)
     glutInitWindowSize(700, 700)
-    glutInitWindowPosition(0, 0)
+    glutInitWindowPosition(400, 60)
     wind = glutCreateWindow("The Dungeon")
     glutDisplayFunc(level1)
     glutIdleFunc(level1)

@@ -99,6 +99,14 @@ def victory():
     glEnd()
 
 def gameend():
+    glColor3ub(0, 0, 0)
+    glBegin(GL_POLYGON)
+    glVertex(0, 0)
+    glVertex(0, 1000)
+    glVertex(1000, 1000)
+    glVertex(1000, 0)
+    glEnd()
+    
     glColor3ub(120, 0, 0)
     glBegin(GL_POLYGON)
     glVertex(80, 280)
@@ -214,26 +222,26 @@ def gameend():
     glEnd()
 
 
-def iterate():
-    glViewport(0, 0, 1000, 1000)
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    glOrtho(0, 1000, 0, 1000, 0.0, 1.0)
-    glMatrixMode (GL_MODELVIEW)
-    glLoadIdentity()
-def showScreen():
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-    glLoadIdentity()
-    iterate()
-    # victory()
-    # gameend()
-    glutSwapBuffers()
+# def iterate():
+#     glViewport(0, 0, 1000, 1000)
+#     glMatrixMode(GL_PROJECTION)
+#     glLoadIdentity()
+#     glOrtho(0, 1000, 0, 1000, 0.0, 1.0)
+#     glMatrixMode (GL_MODELVIEW)
+#     glLoadIdentity()
+# def showScreen():
+#     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+#     glLoadIdentity()
+#     iterate()
+#     # victory()
+#     # gameend()
+#     glutSwapBuffers()
     
-glutInit()
-glutInitDisplayMode(GLUT_RGBA)
-glutInitWindowSize(1000, 1000)
-glutInitWindowPosition(0, 0)
-wind = glutCreateWindow("OpenGL Coding Practice : GL_POLYGON")
-glutDisplayFunc(showScreen)
-glutIdleFunc(showScreen)
-glutMainLoop()
+# glutInit()
+# glutInitDisplayMode(GLUT_RGBA)
+# glutInitWindowSize(1000, 1000)
+# glutInitWindowPosition(0, 0)
+# wind = glutCreateWindow("OpenGL Coding Practice : GL_POLYGON")
+# glutDisplayFunc(showScreen)
+# glutIdleFunc(showScreen)
+# glutMainLoop()

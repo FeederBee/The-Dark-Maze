@@ -2,9 +2,9 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-w, h = 800, 1200
 
 def princess():
+    glScalef(0.5, 0.5, 1)
     glColor3ub(150, 75, 0)
     glBegin(GL_POLYGON)
     glVertex(700, 1000)
@@ -138,30 +138,30 @@ def princess():
     glVertex(500, 1150)
     glEnd()
 
-def iterate():
-    glViewport(0, 0, 800, 1200)
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    glColor3ub(50, 50, 50)
-    glOrtho(0, w, 0, h, 0.0, 1.0)
-    glMatrixMode (GL_MODELVIEW)
-    glLoadIdentity()
+# def iterate():
+#     glViewport(0, 0, 700, 700)
+#     glMatrixMode(GL_PROJECTION)
+#     glLoadIdentity()
+#     glColor3ub(50, 50, 50)
+#     glOrtho(-0, 700, -0, 700, 0.0, 1.0)
+#     glMatrixMode (GL_MODELVIEW)
+#     glLoadIdentity()
 
-def showScreen():
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-    glLoadIdentity()
-    iterate()
-    glScaled(0.5, 0.5, 1)
-    # glColor3f(1.0, 0.0, 3.0)
-    # glClearColor(80, 80, 80, 1)
-    princess()
-    glutSwapBuffers()
+# def showScreen():
+#     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+#     glLoadIdentity()
+#     iterate()
+#     glScaled(0.5, 0.5, 1)
+#     # glColor3f(1.0, 0.0, 3.0)
+#     # glClearColor(80, 80, 80, 1)
+#     princess()
+#     glutSwapBuffers()
 
-glutInit()
-glutInitDisplayMode(GLUT_RGBA)
-glutInitWindowSize(w, h)
-glutInitWindowPosition(0, 0)
-wind = glutCreateWindow("The Maze Dungeon")
-glutDisplayFunc(showScreen)
-glutIdleFunc(showScreen)
-glutMainLoop()
+# glutInit()
+# glutInitDisplayMode(GLUT_RGBA)
+# glutInitWindowSize(700, 700)
+# glutInitWindowPosition(0, 0)
+# wind = glutCreateWindow("The Maze Dungeon")
+# glutDisplayFunc(showScreen)
+# glutIdleFunc(showScreen)
+# glutMainLoop()

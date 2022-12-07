@@ -5,6 +5,7 @@ from Karakter import *
 from Map.mazemap import *
 from Karakter.Knight import *
 from Karakter.Spider import *
+from Karakter.princess import *
 
 # Ukuran
 canvas=700
@@ -182,6 +183,12 @@ def knight_move():
 
     glPopMatrix()
 
+def princes():
+    glTranslated(520, 700, 0)
+    glScaled(0.08,0.1,0)
+    glRotated(-180,0,1,0)
+    princess()
+
 def spider1():
     global x_s, y_s, mx,my
     arah='x'
@@ -261,11 +268,11 @@ def update(value):
     glutTimerFunc(10,update,0)
 
 def iterate():
-    glViewport(0, 0, canvas, canvas)
+    glViewport(0, 0, 700, 700)
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
     glColor3ub(50, 50, 50)
-    glOrtho(-0, canvas, -0, canvas, 0.0, 1.0)
+    glOrtho(-0, 700, -0, 700, 0.0, 1.0)
     glMatrixMode (GL_MODELVIEW)
     glLoadIdentity()
 
@@ -280,6 +287,7 @@ def level2():
     knight_move()
     spider1()
     spider2()
+    princes()
     collision()
     glutSwapBuffers()
 
