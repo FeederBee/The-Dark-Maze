@@ -5,6 +5,7 @@ from OpenGL.GLUT import *
 
 def knight():
     glColor3f(0.2,0.2,0.2)
+    glScaled(5,5,0)
     glBegin(GL_POLYGON)   
     #Kaki Kiri
     glVertex2f(-2.9335231425966, 2.8673369924097)#C

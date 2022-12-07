@@ -2,7 +2,12 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-def badan():
+
+
+Pk = 0.456  #panjang segmen kaki
+p = 0.912  #jarak antar kaki
+
+def laba():
     # glScale(2.0, 2.0, 0.0)
     glColor3f(1.0,0.0,0.0)
     #Badan
@@ -32,13 +37,7 @@ def badan():
     glVertex2f(1.14, -0.916)#N'
     glEnd()
 
-
-
-Pk = 0.456  #panjang segmen kaki
-p = 0.912  #jarak antar kaki
-
-def Kaki():
-    # glScale(2.0, 2.0, 0.0)
+    #Kaki
     glColor3f(1.0,0.0,0.0)
     #Kaki Kiri
     #pangkal depan
@@ -48,8 +47,6 @@ def Kaki():
     glVertex2f(-2.512+Pk, -0.92-p)#Q
     glVertex2f(-1.6, -0.92-p)#R
     glEnd()
-
-
 
     #pangkal tengah1
     glBegin(GL_POLYGON)
@@ -107,30 +104,6 @@ def Kaki():
     glVertex2f(1.6, -0.92+2*p)
     glEnd()
 
-
-# Cek :
-# def iterate():
-#     glViewport(0, 0, 500, 500)
-#     glMatrixMode(GL_PROJECTION)
-#     glLoadIdentity()
-#     glOrtho(-4, 4, -3, 4, 0.0, 1.0)
-#     glMatrixMode (GL_MODELVIEW)
-#     glLoadIdentity()
-
-# def showScreen():
-#     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-#     glLoadIdentity()
-#     iterate()
-#     badan()
-#     Kaki()
-#     glutSwapBuffers()
-    
-# print("",((2.512-1.6)/2))
-# glutInit()
-# glutInitDisplayMode(GLUT_RGBA)
-# glutInitWindowSize(500, 500)
-# glutInitWindowPosition(0, 0)
-# wind = glutCreateWindow("OpenGL Coding Practice : GL_POLYGON")
-# glutDisplayFunc(showScreen)
-# glutIdleFunc(showScreen)
-# glutMainLoop()
+# def mons_update(value):
+#     glutPostRedisplay()
+#     glutTimerFunc(1000,mons_update,0)

@@ -384,10 +384,10 @@ def lvl3():
 
 # Cek :
 def iterate():
-    glViewport(0, 0, 1000, 1000)
+    glViewport(0, 0, 700, 700)
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
-    glOrtho(-1000, 1000, -1000, 1000, 0.0, 1.0)
+    glOrtho(-700, 700, -700, 700, 0.0, 1.0)
     glMatrixMode (GL_MODELVIEW)
     glLoadIdentity()
 def showScreen():
@@ -404,7 +404,7 @@ def showScreen():
     
 glutInit()
 glutInitDisplayMode(GLUT_RGBA)
-glutInitWindowSize(1000, 1000)
+glutInitWindowSize(700, 700)
 glutInitWindowPosition(0, 0)
 wind = glutCreateWindow("OpenGL Coding Practice : GL_POLYGON")
 glutDisplayFunc(showScreen)
