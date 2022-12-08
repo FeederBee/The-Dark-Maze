@@ -12,6 +12,14 @@ from label import *
 # Ukuran
 canvas=700
 gameover = False
+tamat = False
+
+#set koordinat princess
+x_p = 960
+y_p = -430
+
+# x_p = 100 #lebih dekat jaraknya
+# y_p = -30
 
 #set koordinat Knight
 x_k=0
@@ -373,7 +381,7 @@ def spider1():
 
     x_s+=mx
     y_s+=my
-    print(x_s,y_s)
+    # print(x_s,y_s)
 
     glScale(6, 6, 0.0)
     laba()
@@ -510,35 +518,54 @@ def spider3():
     glPopMatrix()
 
 def princes():
-    glTranslated(960, -430, 0)
+    global x_p, y_p
+    # glTranslated(960, -430, 0)
+    glTranslate(x_p, y_p, 0)
     glScaled(0.1,0.1,0)
     glRotated(-180,0,1,0)
     princess()
 
 def labelend():
-    glTranslatef(-60, -50, 0)
-    glScaled(0.8, 0.8,0)
+    glTranslatef(-130, -950, 0)
+    glScaled(1.7, 1.7,0)
     gameend()
 
+def labelvictory():
+    glTranslatef(-130, -950, 0)
+    glScaled(1.7, 1.7,0)
+    victory()
+
 def collision():
-    global x_s,y_s,x_k,y_k,x_s2,y_s2,tran_xs,tran_ys,tran_yk,tran_xk
+    global x_s,y_s,x_k,y_k,x_s2,y_s2,tran_xs,tran_ys,tran_yk,tran_xk, gameover, tamat
     #Spider1
     if (x_s+tran_xs[0]-50<=x_k<=x_s+tran_xs[0] or x_s+tran_xs[0]-50<=x_k<=x_s+tran_xs[0]) and (y_s+tran_ys[0]-25<=y_k+tran_yk<=y_s+tran_ys[0]+20 or y_s+tran_ys[0]-25<=y_k-tran_yk<=y_s+tran_ys[0]+20):
-        print('collision 1')
+        gameover = True
 
     #Spider2
     if (x_s2+tran_xs[1]-50<=x_k+10<=x_s2+tran_xs[1] or x_s2+tran_xs[1]-50<=x_k-10<=x_s2+tran_xs[1]) and (y_s2+tran_ys[1]-25<=y_k+tran_yk<=y_s2+tran_ys[1]+20 or y_s2+tran_ys[1]-25<=y_k-tran_yk<=y_s2+tran_ys[1]+20):
-        print('collision 2')
+        gameover = True
 
     if (x_s3+tran_xs[2]-55<=x_k<=x_s3+tran_xs[2]+5 or x_s3+tran_xs[2]-55<=x_k<=x_s3+tran_xs[2]+5) and (y_s3+tran_ys[2]-25<=y_k+tran_yk<=y_s3+tran_ys[2]+25 or y_s3+tran_ys[2]-25<=y_k-tran_yk<=y_s3+tran_ys[2]+25):
-        print('collision 3')
+        gameover = True
 
-def gamestate():
+    if (x_p-30<=x_k<=x_p) and (y_p<=y_k<=y_p+55):
+        tamat = True
+        print("tamat")
+
+def gamestateover():
     global gameover
     if gameover == True:
         labelend()
     else:
         princes()
+
+def gamestatefinish():
+    global tamat
+    if tamat == True:
+        labelvictory()
+    else:
+        princes()
+
 
 def update(value):
     glutPostRedisplay()
@@ -565,7 +592,10 @@ def level3():
     glTranslate(30,950,0)
     knight_move()
     collision()
-    gamestate()
+    gamestateover()
+    gamestatefinish()
+    print(x_p, y_p)
+    print(x_k, y_k)
     glutSwapBuffers()
 
 def level3_main():

@@ -22,8 +22,8 @@ y_s=0
 mx,my=0,0
 
 #set koordinat princess
-x_p = 0
-y_p = 0
+x_p = 455
+y_p = 200
 
 #set animasi untuk gerakan karakter
 rotate=1
@@ -261,17 +261,23 @@ def spider():
 
 def princes():
     global x_p, y_p
-    glTranslated(465, 185, 0)
-    glTranslate(x_p,y_p,0)
+    # glTranslated(465, 185, 0)i
+    glPushMatrix()
+    glTranslated(x_p,y_p,0)
     glScaled(0.1,0.1,0)
     glRotated(-180,0,1,0)
     princess()
+    glPopMatrix()
 
 def labelend():
     glTranslatef(-60, -50, 0)
     glScaled(0.8, 0.8,0)
     gameend()
 
+def labelvictory():
+    glTranslatef(-60, -50, 0)
+    glScaled(0.8, 0.8,0)
+    victory()
 
 
 def collision():
@@ -282,18 +288,23 @@ def collision():
     #     print('Overlap sumbu x')
     # elif (y_s+180-2<=y_k+2<=y_s+180+40 or y_s+180-10<=y_k-2<=y_s+180+40):
     #     print('Overlap sumbu y')
-    elif (x_p+200-20<=x_k+10<=x_p+200+20 or x_p+200-20<=x_k-10<=x_p+200+20) and (y_p+200-20<=y_k+10<=y_p+200+20 or y_p+200-20<=y_k-10<=y_p+200+20):
+    if (x_p-40<=x_k<=x_p+20) and (y_p-20<=y_k<=y_p+40):
         tamat = True
-        print("tamat")
     else :
         None
 
-def gamestate():
+def gamestateover():
     global gameover
     if gameover == True:
         labelend()
     else:
         princes()
+
+def gamestatefinish():
+    global tamat
+    if tamat == True:
+        labelvictory()
+
 
 def update(value):
     glutPostRedisplay()
@@ -319,7 +330,10 @@ def level1():
     knight_move()
     spider()
     collision()
-    gamestate()
+    gamestateover()
+    gamestatefinish()
+    print(x_p, y_p)
+    print(x_k, y_k)
     glutSwapBuffers()
 
 def level1_main():

@@ -3,6 +3,14 @@ from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
 def victory():
+    glColor3ub(0, 0, 0)
+    glBegin(GL_POLYGON)
+    glVertex(0, 0)
+    glVertex(0, 2000)
+    glVertex(2000, 2000)
+    glVertex(2000, 0)
+    glEnd()
+    
     glColor3ub(120, 0, 0)
     glBegin(GL_POLYGON)
     glVertex(80, 280)
@@ -252,9 +260,9 @@ def gameend():
     glColor3ub(0, 0, 0)
     glBegin(GL_POLYGON)
     glVertex(0, 0)
-    glVertex(0, 1000)
-    glVertex(1500, 1500)
-    glVertex(1500, 0)
+    glVertex(0, 2000)
+    glVertex(2000, 2000)
+    glVertex(2000, 0)
     glEnd()
     
     glColor3ub(120, 0, 0)
