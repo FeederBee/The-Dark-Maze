@@ -8,17 +8,20 @@ from Karakter.Spider import *
 from Karakter.princess import*
 from label import *
 
+from Main import *
+# from Main import *
+
 gameover = False
 tamat = False
 
-#set koordinat Knight
-x_k=0
-y_k=0
+# #set koordinat Knight
+# x_k=0
+# y_k=0
 
-#set koordinat Spider (monster)
-#x_s, y_s
-x_s=0
-y_s=0
+# #set koordinat Spider (monster)
+# #x_s, y_s
+# x_s=0
+# y_s=0
 mx,my=0,0
 
 #set koordinat princess
@@ -47,120 +50,6 @@ def input_keyboard(key,x,y):
     elif key == GLUT_KEY_LEFT:
         rotate=4
         x_k -= 5
-
-    glColor3ub(120, 0, 0)
-    glBegin(GL_POLYGON)
-    glVertex(80, 280)
-    glVertex(80, 480)
-    glVertex(620, 480)
-    glVertex(620, 280)
-    glEnd()
-
-    glColor3ub(150, 75, 0)
-    glBegin(GL_POLYGON)
-    glVertex(100, 300)
-    glVertex(100, 460)
-    glVertex(600, 460)
-    glVertex(600, 300)
-    glEnd()
-
-
-    glColor3ub(150, 0, 0)
-    glBegin(GL_POLYGON)
-    glVertex(120, 320)
-    glVertex(120, 440)
-    glVertex(580, 440)
-    glVertex(580, 320)
-    glEnd()
-
-    glColor3ub(255, 160, 160)
-    glLineWidth(3)
-    glBegin(GL_LINES)
-    glVertex(180, 400)
-    glVertex(140, 400)
-
-    glVertex(140, 400)
-    glVertex(140, 360)
-
-    glVertex(140, 360)
-    glVertex(180, 360)
-
-    glVertex(180, 360)
-    glVertex(180, 380)
-
-    glVertex(180, 380)
-    glVertex(160, 380)
-
-    glVertex(200, 360)
-    glVertex(220, 400)
-    
-    glVertex(220, 400)
-    glVertex(240, 360)
-
-    glVertex(210, 380)
-    glVertex(230, 380)
-
-    glVertex(260, 360)
-    glVertex(260, 400)
-
-    glVertex(260, 400)
-    glVertex(280, 380)
-
-    glVertex(280, 380)
-    glVertex(300, 400)
-
-    glVertex(300, 400)
-    glVertex(300, 360)
-
-    glVertex(320, 400)
-    glVertex(320, 360)
-
-    glVertex(320, 400)
-    glVertex(360, 400)
-
-    glVertex(320, 380)
-    glVertex(340, 380)
-
-    glVertex(320, 360)
-    glVertex(360, 360)
-
-    glVertex(400, 400)
-    glVertex(400, 360)
-
-    glVertex(400, 400)
-    glVertex(440, 400)
-
-    glVertex(400, 380)
-    glVertex(420, 380)
-
-    glVertex(400, 360)
-    glVertex(440, 360)
-
-    glVertex(460, 360)
-    glVertex(460, 400)
-
-    glVertex(460, 400)
-    glVertex(500, 360)
-
-    glVertex(500, 360)
-    glVertex(500, 400)
-
-    glVertex(520, 360)
-    glVertex(520, 400)
-    
-    glVertex(520, 400)
-    glVertex(540, 400)
-
-    glVertex(540, 400)
-    glVertex(560, 380)
-
-    glVertex(560, 380)
-    glVertex(540, 360)
-
-    glVertex(540, 360)
-    glVertex(520, 360)
-
-    glEnd()
 
 def knight_move():
     global x_k,y_k,rotate, game
@@ -295,7 +184,7 @@ def collision():
 
 def gamestateover():
     global gameover
-    if gameover == True:
+    if gameover == True and tamat==False:
         labelend()
     else:
         princes()
@@ -332,8 +221,8 @@ def level1():
     collision()
     gamestateover()
     gamestatefinish()
-    print(x_p, y_p)
-    print(x_k, y_k)
+    # print(x_p, y_p)
+    # print(x_k, y_k)
     glutSwapBuffers()
 
 def level1_main():
@@ -348,4 +237,4 @@ def level1_main():
     glutTimerFunc(1,update,0)
     glutMainLoop()
 
-level1_main()
+# level1_main()

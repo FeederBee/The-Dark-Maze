@@ -7,6 +7,7 @@ from Karakter.Knight import *
 from Karakter.Spider import *
 from Karakter.princess import *
 from label import *
+# from Main import *
 
 # Ukuran
 canvas=700
@@ -16,8 +17,8 @@ tamat = False
 #set koordinat princess
 # x_p = 520
 # y_p = 700
-x_p = 50
-y_p = 50
+x_p =520
+y_p = 680
 
 #set koordinat Knight
 x_k=0
@@ -292,14 +293,17 @@ def update(value):
     glutTimerFunc(10,update,0)
 
 def gamestateover():
-    global gameover
-    if gameover == True:
+    global gameover, tamat
+    if gameover == True and tamat==False:
         labelend()
+
 
 def gamestatefinish():
     global tamat
-    if tamat == True:
+    if tamat == True :
         labelvictory()
+    elif tamat==False and gameover==False :
+        princes()
 
 def iterate():
     glViewport(0, 0, 700, 700)
@@ -321,12 +325,9 @@ def level2():
     knight_move()
     spider1()
     spider2()
-    princes()
     collision()
     gamestateover()
     gamestatefinish()
-    print(x_p, y_p)
-    print(x_k, y_k)
     glutSwapBuffers()
 
 def level2_main():

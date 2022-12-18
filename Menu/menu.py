@@ -2,7 +2,7 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-
+Key = 0
 def blok():
     glColor3ub(60, 60, 60)
     glBegin(GL_POLYGON)
@@ -11,21 +11,21 @@ def blok():
     glVertex2f(300, 300)
     glVertex2f(300, 150)
     glEnd()
-
+    #LEVEL1
     glBegin(GL_POLYGON)
     glVertex2f(-160, 40)
     glVertex2f(160, 40)
     glVertex2f(160, -40)
     glVertex2f(-160, -40)
     glEnd()
-
+    # LEVEL2
     glBegin(GL_POLYGON)
     glVertex2f(-160, -90)
     glVertex2f(160, -90)
     glVertex2f(160, -170)
     glVertex2f(-160, -170)
     glEnd()
-    
+    #LEVEL3
     glBegin(GL_POLYGON)
     glVertex2f(-160, -220)
     glVertex2f(160, -220)
@@ -381,8 +381,45 @@ def lvl3():
     glEnd()
 
 
-
 # Cek :
+
+# def colliMouse(x,y):
+#     global Key
+#     x=-350+x
+#     y=350-y
+#     if -80<= x<=80 and -20<= y <=20 :
+#         Key=1
+#     elif -80<= x<=80 and -85<= y <=-45 :
+#         Key=2
+
+#     elif -80<= x<=80 and -150<= y <=-110 :
+#         Key=3
+#     print(Key)
+
+# def input_mouse(button, state, x, y):
+#     if button == GLUT_LEFT_BUTTON and state == GLUT_DOWN:
+#         colliMouse(x,y)
+
+def colliMouse(x,y):
+    global Key
+    x=-350+x
+    y=350-y
+    if -80<= x<=80 and -20<= y <=20 :
+        Key=1
+    elif -80<= x<=80 and -85<= y <=-45 :
+        Key=2
+    elif -80<= x<=80 and -150<= y <=-110 :
+        Key=3
+    # print(Key)
+
+def input_mouse(button, state, x, y):
+    if button == GLUT_LEFT_BUTTON and state == GLUT_DOWN:
+        colliMouse(x,y)
+
+def update(value):
+    glutPostRedisplay()
+    glutTimerFunc(10,update,0)
+
 def iterate():
     glViewport(0, 0, 700, 700)
     glMatrixMode(GL_PROJECTION)
@@ -390,7 +427,8 @@ def iterate():
     glOrtho(-700, 700, -700, 700, 0.0, 1.0)
     glMatrixMode (GL_MODELVIEW)
     glLoadIdentity()
-def showScreen():
+
+def menu():
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     glLoadIdentity()
     iterate()
@@ -399,14 +437,19 @@ def showScreen():
     lvl1()
     lvl2()
     lvl3()
-    
     glutSwapBuffers()
     
-glutInit()
-glutInitDisplayMode(GLUT_RGBA)
-glutInitWindowSize(700, 700)
-glutInitWindowPosition(0, 0)
-wind = glutCreateWindow("OpenGL Coding Practice : GL_POLYGON")
-glutDisplayFunc(showScreen)
-glutIdleFunc(showScreen)
-glutMainLoop()
+def main_menu():
+    # glutInit()
+    # glutInitDisplayMode(GLUT_RGBA)
+    # glutInitWindowSize(700, 700)
+    # glutInitWindowPosition(0, 0)
+    # wind = glutCreateWindow("OpenGL Coding Practice : GL_POLYGON")
+    glutDisplayFunc(menu)
+    glutIdleFunc(menu)
+    # glutSpecialFunc(input_keyboard)
+    glutMouseFunc(input_mouse)
+    # glutTimerFunc(1,update,0)
+    # glutMainLoop()
+
+# main_menu()

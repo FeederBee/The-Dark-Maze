@@ -106,154 +106,154 @@ def victory():
     glVertex(540, 360)
     glEnd()
 
-    glColor3ub(255, 160, 160)
-    glLineWidth(3)
-    glBegin(GL_LINES)
-    glVertex(320, 200)
-    glVertex(350, 220)
+    # glColor3ub(255, 160, 160)
+    # glLineWidth(3)
+    # glBegin(GL_LINES)
+    # glVertex(320, 200)
+    # glVertex(350, 220)
     
-    glVertex(350, 220)
-    glVertex(380, 200)
+    # glVertex(350, 220)
+    # glVertex(380, 200)
 
-    glVertex(330, 200)
-    glVertex(330, 180)
+    # glVertex(330, 200)
+    # glVertex(330, 180)
 
-    glVertex(330, 180)
-    glVertex(370, 180)
+    # glVertex(330, 180)
+    # glVertex(370, 180)
 
-    glVertex(370, 180)
-    glVertex(370, 200)
+    # glVertex(370, 180)
+    # glVertex(370, 200)
 
-    glVertex(190, 150)
-    glVertex(190, 130)
+    # glVertex(190, 150)
+    # glVertex(190, 130)
 
-    glVertex(190, 150)
-    glVertex(210, 150)
+    # glVertex(190, 150)
+    # glVertex(210, 150)
 
-    glVertex(210, 150)
-    glVertex(210, 140)
+    # glVertex(210, 150)
+    # glVertex(210, 140)
 
-    glVertex(210, 140)
-    glVertex(190, 140)
+    # glVertex(210, 140)
+    # glVertex(190, 140)
 
-    glVertex(220, 130)
-    glVertex(220, 150)
+    # glVertex(220, 130)
+    # glVertex(220, 150)
 
-    glVertex(220, 150)
-    glVertex(240, 150)
+    # glVertex(220, 150)
+    # glVertex(240, 150)
 
-    glVertex(240, 150)
-    glVertex(240, 140)
+    # glVertex(240, 150)
+    # glVertex(240, 140)
 
-    glVertex(240, 140)
-    glVertex(220, 140)
+    # glVertex(240, 140)
+    # glVertex(220, 140)
 
-    glVertex(220, 140)
-    glVertex(240, 130)
+    # glVertex(220, 140)
+    # glVertex(240, 130)
 
-    glVertex(250, 150)
-    glVertex(250, 130)
+    # glVertex(250, 150)
+    # glVertex(250, 130)
 
-    glVertex(250, 150)
-    glVertex(270, 150)
+    # glVertex(250, 150)
+    # glVertex(270, 150)
 
-    glVertex(250, 140)
-    glVertex(270, 140)
+    # glVertex(250, 140)
+    # glVertex(270, 140)
 
-    glVertex(250, 130)
-    glVertex(270, 130)
+    # glVertex(250, 130)
+    # glVertex(270, 130)
 
-    glVertex(300, 150)
-    glVertex(280, 150)
+    # glVertex(300, 150)
+    # glVertex(280, 150)
 
-    glVertex(280, 150)
-    glVertex(280, 140)
+    # glVertex(280, 150)
+    # glVertex(280, 140)
 
-    glVertex(280, 140)
-    glVertex(300, 140)
+    # glVertex(280, 140)
+    # glVertex(300, 140)
 
-    glVertex(300, 140)
-    glVertex(300, 130)
+    # glVertex(300, 140)
+    # glVertex(300, 130)
 
-    glVertex(300, 130)
-    glVertex(280, 130)
+    # glVertex(300, 130)
+    # glVertex(280, 130)
 
-    glVertex(330, 150)
-    glVertex(310, 150)
+    # glVertex(330, 150)
+    # glVertex(310, 150)
 
-    glVertex(310, 150)
-    glVertex(310, 140)
+    # glVertex(310, 150)
+    # glVertex(310, 140)
 
-    glVertex(310, 140)
-    glVertex(330, 140)
+    # glVertex(310, 140)
+    # glVertex(330, 140)
 
-    glVertex(330, 140)
-    glVertex(330, 130)
+    # glVertex(330, 140)
+    # glVertex(330, 130)
     
-    glVertex(330, 130)
-    glVertex(310, 130)
+    # glVertex(330, 130)
+    # glVertex(310, 130)
 
-    glVertex(390, 150)
-    glVertex(370, 150)
+    # glVertex(390, 150)
+    # glVertex(370, 150)
     
-    glVertex(370, 150)
-    glVertex(370, 140)
+    # glVertex(370, 150)
+    # glVertex(370, 140)
 
-    glVertex(370, 140)
-    glVertex(390, 140)
+    # glVertex(370, 140)
+    # glVertex(390, 140)
 
-    glVertex(390, 140)
-    glVertex(390, 130)
+    # glVertex(390, 140)
+    # glVertex(390, 130)
 
-    glVertex(390, 130)
-    glVertex(370, 130)
+    # glVertex(390, 130)
+    # glVertex(370, 130)
 
-    glVertex(400, 130)
-    glVertex(400, 150)
+    # glVertex(400, 130)
+    # glVertex(400, 150)
 
-    glVertex(400, 150)
-    glVertex(420, 150)
+    # glVertex(400, 150)
+    # glVertex(420, 150)
 
-    glVertex(420, 150)
-    glVertex(420, 140)
+    # glVertex(420, 150)
+    # glVertex(420, 140)
 
-    glVertex(420, 140)
-    glVertex(400, 140)
+    # glVertex(420, 140)
+    # glVertex(400, 140)
 
-    glVertex(430, 130)
-    glVertex(430, 150)
+    # glVertex(430, 130)
+    # glVertex(430, 150)
 
-    glVertex(430, 150)
-    glVertex(450, 150)
+    # glVertex(430, 150)
+    # glVertex(450, 150)
 
-    glVertex(450, 150)
-    glVertex(450, 130)
+    # glVertex(450, 150)
+    # glVertex(450, 130)
 
-    glVertex(430, 140)
-    glVertex(450, 140)
+    # glVertex(430, 140)
+    # glVertex(450, 140)
 
-    glVertex(480, 150)
-    glVertex(460, 150)
+    # glVertex(480, 150)
+    # glVertex(460, 150)
 
-    glVertex(460, 150)
-    glVertex(460, 130)
+    # glVertex(460, 150)
+    # glVertex(460, 130)
 
-    glVertex(460, 130)
-    glVertex(480, 130)
+    # glVertex(460, 130)
+    # glVertex(480, 130)
 
-    glVertex(490, 150)
-    glVertex(490, 130)
+    # glVertex(490, 150)
+    # glVertex(490, 130)
 
-    glVertex(490, 150)
-    glVertex(510, 150)
+    # glVertex(490, 150)
+    # glVertex(510, 150)
 
-    glVertex(490, 140)
-    glVertex(510, 140)
+    # glVertex(490, 140)
+    # glVertex(510, 140)
 
-    glVertex(490, 130)
-    glVertex(510, 130)
+    # glVertex(490, 130)
+    # glVertex(510, 130)
 
-    glEnd()
+    # glEnd()
 
 
 def gameend():
@@ -379,154 +379,154 @@ def gameend():
 
     glEnd()
 
-    glColor3ub(255, 160, 160)
-    glLineWidth(3)
-    glBegin(GL_LINES)
-    glVertex(320, 200)
-    glVertex(350, 220)
+    # glColor3ub(255, 160, 160)
+    # glLineWidth(3)
+    # glBegin(GL_LINES)
+    # glVertex(320, 200)
+    # glVertex(350, 220)
     
-    glVertex(350, 220)
-    glVertex(380, 200)
+    # glVertex(350, 220)
+    # glVertex(380, 200)
 
-    glVertex(330, 200)
-    glVertex(330, 180)
+    # glVertex(330, 200)
+    # glVertex(330, 180)
 
-    glVertex(330, 180)
-    glVertex(370, 180)
+    # glVertex(330, 180)
+    # glVertex(370, 180)
 
-    glVertex(370, 180)
-    glVertex(370, 200)
+    # glVertex(370, 180)
+    # glVertex(370, 200)
 
-    glVertex(190, 150)
-    glVertex(190, 130)
+    # glVertex(190, 150)
+    # glVertex(190, 130)
 
-    glVertex(190, 150)
-    glVertex(210, 150)
+    # glVertex(190, 150)
+    # glVertex(210, 150)
 
-    glVertex(210, 150)
-    glVertex(210, 140)
+    # glVertex(210, 150)
+    # glVertex(210, 140)
 
-    glVertex(210, 140)
-    glVertex(190, 140)
+    # glVertex(210, 140)
+    # glVertex(190, 140)
 
-    glVertex(220, 130)
-    glVertex(220, 150)
+    # glVertex(220, 130)
+    # glVertex(220, 150)
 
-    glVertex(220, 150)
-    glVertex(240, 150)
+    # glVertex(220, 150)
+    # glVertex(240, 150)
 
-    glVertex(240, 150)
-    glVertex(240, 140)
+    # glVertex(240, 150)
+    # glVertex(240, 140)
 
-    glVertex(240, 140)
-    glVertex(220, 140)
+    # glVertex(240, 140)
+    # glVertex(220, 140)
 
-    glVertex(220, 140)
-    glVertex(240, 130)
+    # glVertex(220, 140)
+    # glVertex(240, 130)
 
-    glVertex(250, 150)
-    glVertex(250, 130)
+    # glVertex(250, 150)
+    # glVertex(250, 130)
 
-    glVertex(250, 150)
-    glVertex(270, 150)
+    # glVertex(250, 150)
+    # glVertex(270, 150)
 
-    glVertex(250, 140)
-    glVertex(270, 140)
+    # glVertex(250, 140)
+    # glVertex(270, 140)
 
-    glVertex(250, 130)
-    glVertex(270, 130)
+    # glVertex(250, 130)
+    # glVertex(270, 130)
 
-    glVertex(300, 150)
-    glVertex(280, 150)
+    # glVertex(300, 150)
+    # glVertex(280, 150)
 
-    glVertex(280, 150)
-    glVertex(280, 140)
+    # glVertex(280, 150)
+    # glVertex(280, 140)
 
-    glVertex(280, 140)
-    glVertex(300, 140)
+    # glVertex(280, 140)
+    # glVertex(300, 140)
 
-    glVertex(300, 140)
-    glVertex(300, 130)
+    # glVertex(300, 140)
+    # glVertex(300, 130)
 
-    glVertex(300, 130)
-    glVertex(280, 130)
+    # glVertex(300, 130)
+    # glVertex(280, 130)
 
-    glVertex(330, 150)
-    glVertex(310, 150)
+    # glVertex(330, 150)
+    # glVertex(310, 150)
 
-    glVertex(310, 150)
-    glVertex(310, 140)
+    # glVertex(310, 150)
+    # glVertex(310, 140)
 
-    glVertex(310, 140)
-    glVertex(330, 140)
+    # glVertex(310, 140)
+    # glVertex(330, 140)
 
-    glVertex(330, 140)
-    glVertex(330, 130)
+    # glVertex(330, 140)
+    # glVertex(330, 130)
     
-    glVertex(330, 130)
-    glVertex(310, 130)
+    # glVertex(330, 130)
+    # glVertex(310, 130)
 
-    glVertex(390, 150)
-    glVertex(370, 150)
+    # glVertex(390, 150)
+    # glVertex(370, 150)
     
-    glVertex(370, 150)
-    glVertex(370, 140)
+    # glVertex(370, 150)
+    # glVertex(370, 140)
 
-    glVertex(370, 140)
-    glVertex(390, 140)
+    # glVertex(370, 140)
+    # glVertex(390, 140)
 
-    glVertex(390, 140)
-    glVertex(390, 130)
+    # glVertex(390, 140)
+    # glVertex(390, 130)
 
-    glVertex(390, 130)
-    glVertex(370, 130)
+    # glVertex(390, 130)
+    # glVertex(370, 130)
 
-    glVertex(400, 130)
-    glVertex(400, 150)
+    # glVertex(400, 130)
+    # glVertex(400, 150)
 
-    glVertex(400, 150)
-    glVertex(420, 150)
+    # glVertex(400, 150)
+    # glVertex(420, 150)
 
-    glVertex(420, 150)
-    glVertex(420, 140)
+    # glVertex(420, 150)
+    # glVertex(420, 140)
 
-    glVertex(420, 140)
-    glVertex(400, 140)
+    # glVertex(420, 140)
+    # glVertex(400, 140)
 
-    glVertex(430, 130)
-    glVertex(430, 150)
+    # glVertex(430, 130)
+    # glVertex(430, 150)
 
-    glVertex(430, 150)
-    glVertex(450, 150)
+    # glVertex(430, 150)
+    # glVertex(450, 150)
 
-    glVertex(450, 150)
-    glVertex(450, 130)
+    # glVertex(450, 150)
+    # glVertex(450, 130)
 
-    glVertex(430, 140)
-    glVertex(450, 140)
+    # glVertex(430, 140)
+    # glVertex(450, 140)
 
-    glVertex(480, 150)
-    glVertex(460, 150)
+    # glVertex(480, 150)
+    # glVertex(460, 150)
 
-    glVertex(460, 150)
-    glVertex(460, 130)
+    # glVertex(460, 150)
+    # glVertex(460, 130)
 
-    glVertex(460, 130)
-    glVertex(480, 130)
+    # glVertex(460, 130)
+    # glVertex(480, 130)
 
-    glVertex(490, 150)
-    glVertex(490, 130)
+    # glVertex(490, 150)
+    # glVertex(490, 130)
 
-    glVertex(490, 150)
-    glVertex(510, 150)
+    # glVertex(490, 150)
+    # glVertex(510, 150)
 
-    glVertex(490, 140)
-    glVertex(510, 140)
+    # glVertex(490, 140)
+    # glVertex(510, 140)
 
-    glVertex(490, 130)
-    glVertex(510, 130)
+    # glVertex(490, 130)
+    # glVertex(510, 130)
 
-    glEnd()
+    # glEnd()
 
 
 # def iterate():

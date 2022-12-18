@@ -7,7 +7,7 @@ from Karakter.Knight import *
 from Karakter.Spider import *
 from Karakter.princess import *
 from label import *
-
+# from Main import *
 
 # Ukuran
 canvas=700
@@ -553,17 +553,15 @@ def collision():
         print("tamat")
 
 def gamestateover():
-    global gameover
-    if gameover == True:
+    global gameover, tamat
+    if gameover == True and tamat==False:
         labelend()
-    else:
-        princes()
 
 def gamestatefinish():
-    global tamat
+    global tamat, gameover
     if tamat == True:
         labelvictory()
-    else:
+    else: 
         princes()
 
 
@@ -594,8 +592,6 @@ def level3():
     collision()
     gamestateover()
     gamestatefinish()
-    print(x_p, y_p)
-    print(x_k, y_k)
     glutSwapBuffers()
 
 def level3_main():
