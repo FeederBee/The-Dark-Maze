@@ -1444,6 +1444,7 @@ def input_keyboard(key,x,y):
         rotate=4
         x_k -= 5
 
+<<<<<<< HEAD
 # def restart(key,x,y):
 #     global Key,x_s,y_s,x_s2,y_s2,x_s3,y_s3,x_k,y_k
 #     if key == b' ':
@@ -1452,6 +1453,16 @@ def input_keyboard(key,x,y):
 #         # y_k=0
 #         # x_s,y_s,x_s2,y_s2,x_s3,y_s3=0,0,0,0,0,0
 #         print("TES")
+=======
+def restart(key,x,y):
+    global Key,x_s,y_s,x_s2,y_s2,x_s3,y_s3,x_k,y_k
+    if key == b' ':
+        Key = 0
+        # x_k=0
+        # y_k=0
+        # x_s,y_s,x_s2,y_s2,x_s3,y_s3=0,0,0,0,0,0
+        # print("TES")
+>>>>>>> 57e1fe842f93aae185e5ccccb768d8969f26cd9d
 
 def scane():
     global Key, p
@@ -1476,7 +1487,11 @@ def main():
     glutDisplayFunc(scane)
     glutIdleFunc(scane)
     glutSpecialFunc(input_keyboard)
+<<<<<<< HEAD
     # glutKeyboardFunc(restart)
+=======
+    glutKeyboardFunc(restart)
+>>>>>>> 57e1fe842f93aae185e5ccccb768d8969f26cd9d
     if Key==0 : glutMouseFunc(input_mouse)
     glutTimerFunc(1,update,0)
     glutMainLoop()
@@ -1485,6 +1500,10 @@ def main():
 # level1_main()
 # level2_main()
 # level3_main()
+<<<<<<< HEAD
 main()   
+=======
+main()
+>>>>>>> 57e1fe842f93aae185e5ccccb768d8969f26cd9d
 
 

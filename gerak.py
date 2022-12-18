@@ -81,8 +81,6 @@ def spider_mov():
     glScale(1.5, 1.5, 0.0)
     glTranslate(x_s,y_s,0)
     auto_move()
-    badan()
-    Kaki()
     glPopMatrix()
 
 def collision():
